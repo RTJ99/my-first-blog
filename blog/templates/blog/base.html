@@ -1,4 +1,3 @@
-{% extends 'blog/base.html' %}
 {% load static from staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -26,19 +25,13 @@
         </div>
     </nav>
     <h1 class="text-center" style="color: rgb(0,0,0);margin-top: 1em;">Sermons</h1>
-    <section>
-{% block content %}
-    {% for post in posts %}
-        <div>
-            <p>published: {{ post.published_date }}</p>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
-    {% endfor %}
-{% endblock %}
-    </section>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
+    </div>
+    </body>
 
 </html>
